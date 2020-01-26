@@ -414,6 +414,17 @@ object WizardForm: TWizardForm
             RequireRadioSelection = True
             TabOrder = 2
           end
+          object FComponentsTreeList: TNewTreeView
+            Left = 0
+            Top = 48
+            Width = 417
+            Height = 157
+            Anchors = [akLeft, akTop, akRight, akBottom]
+            Header.AutoSizeIndex = 0
+            Header.MainColumn = -1
+            TabOrder = 2
+            Columns = <>
+          end
           object FTypesCombo: TNewComboBox
             Left = 0
             Top = 24

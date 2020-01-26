@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D5833FDC-157C-4B4E-A763-DBED32A3A51A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Projects\Setup.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\Compil32.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\ISCC.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\ISCmplr.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Projects\SetupLdr.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Components\Components.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Setup">
+        <MSBuild Projects="Projects\Setup.dproj"/>
+    </Target>
+    <Target Name="Setup:Clean">
+        <MSBuild Projects="Projects\Setup.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Setup:Make">
+        <MSBuild Projects="Projects\Setup.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Compil32">
+        <MSBuild Projects="Projects\Compil32.dproj"/>
+    </Target>
+    <Target Name="Compil32:Clean">
+        <MSBuild Projects="Projects\Compil32.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Compil32:Make">
+        <MSBuild Projects="Projects\Compil32.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ISCC">
+        <MSBuild Projects="Projects\ISCC.dproj"/>
+    </Target>
+    <Target Name="ISCC:Clean">
+        <MSBuild Projects="Projects\ISCC.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ISCC:Make">
+        <MSBuild Projects="Projects\ISCC.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ISCmplr">
+        <MSBuild Projects="Projects\ISCmplr.dproj"/>
+    </Target>
+    <Target Name="ISCmplr:Clean">
+        <MSBuild Projects="Projects\ISCmplr.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ISCmplr:Make">
+        <MSBuild Projects="Projects\ISCmplr.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SetupLdr">
+        <MSBuild Projects="Projects\SetupLdr.dproj"/>
+    </Target>
+    <Target Name="SetupLdr:Clean">
+        <MSBuild Projects="Projects\SetupLdr.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SetupLdr:Make">
+        <MSBuild Projects="Projects\SetupLdr.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Components">
+        <MSBuild Projects="Components\Components.dproj"/>
+    </Target>
+    <Target Name="Components:Clean">
+        <MSBuild Projects="Components\Components.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Components:Make">
+        <MSBuild Projects="Components\Components.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Setup;Compil32;ISCC;ISCmplr;SetupLdr;Components"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Setup:Clean;Compil32:Clean;ISCC:Clean;ISCmplr:Clean;SetupLdr:Clean;Components:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Setup:Make;Compil32:Make;ISCC:Make;ISCmplr:Make;SetupLdr:Make;Components:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

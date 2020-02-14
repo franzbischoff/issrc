@@ -40,6 +40,9 @@ if not exist Staging\ispp.chm goto failed
 rem  HHC leaves behind a temporary file each time it runs...
 if exist "%TEMP%\~hh*.tmp" del /q "%TEMP%\~hh*.tmp"
 
+copy Staging\ispp.chm ..\..\..\Files
+if not exist ..\..\..\Files\ispp.chm goto failed
+
 echo Success!
 exit /b 0
 
